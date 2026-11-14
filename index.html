@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MisterZapatillas | Zapatillas de marca usadas, en buen estado y sanitizadas</title>
+  <!-- Fuente moderna y limpia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* PALETA DE COLORES BASADA EN EL LOGO */
+    :root {
+      --azul-oscuro: #003b73;
+      --azul-claro: #5ba4d9;
+      --azul-muy-claro: #eef6fc;
+      --gris-texto: #4a4a4a;
+      --blanco: #ffffff;
+      --verde-sanitizado: #2e8b57;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafbfc;
+      color: #1e1e1e;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--blanco);
+      box-shadow: 0 4px 12px rgba(0, 59, 115, 0.05);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e1eaf2;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--azul-oscuro);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      color: var(--azul-oscuro);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 1rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--azul-claro);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--azul-claro);
+      transition: width 0.2s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .cart-icon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--azul-oscuro);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      transition: background 0.2s;
+      cursor: default;
+    }
+
+    .cart-icon i {
+      font-size: 1.1rem;
+    }
+
+    .cart-icon:hover {
+      background-color: var(--azul-claro);
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 64px 0 48px;
+      background: linear-gradient(145deg, #ffffff 0%, var(--azul-muy-claro) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: #151515;
+    }
+
+    .hero-content .highlight {
+      color: var(--azul-oscuro);
+      border-bottom: 4px solid rgba(91, 164, 217, 0.4);
+      display: inline-block;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--gris-texto);
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--azul-oscuro);
+      color: white;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 48px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      border: 2px solid var(--azul-oscuro);
+      box-shadow: 0 8px 16px rgba(0, 59, 115, 0.1);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--azul-claro);
+      border-color: var(--azul-claro);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(91, 164, 217, 0.2);
+    }
+
+    .hero-image {
+      background: var(--blanco);
+      border-radius: 40px;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 20px 30px -10px rgba(0, 59, 115, 0.08);
+      aspect-ratio: 1 / 0.9;
+      border: 1px solid #e1eaf2;
+    }
+
+    .hero-image i {
+      font-size: 12rem;
+      color: var(--azul-claro);
+      opacity: 0.9;
+      transform: rotate(-10deg);
+    }
+
+    /* Trust badges */
+    .trust-bar {
+      background-color: var(--blanco);
+      border-radius: 60px;
+      padding: 20px 40px;
+      margin: 24px auto 0;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: 0 6px 16px rgba(0, 59, 115, 0.03);
+      border: 1px solid #e1eaf2;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: #3a3a3a;
+    }
+
+    .trust-item i {
+      color: var(--azul-claro);
+      font-size: 1.4rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    /* Sección de Sanitización */
+    .sanitization-section {
+      padding: 64px 0;
+      background: linear-gradient(135deg, var(--blanco) 0%, #e8f4fd 100%);
+      border-top: 1px solid #e1eaf2;
+      border-bottom: 1px solid #e1eaf2;
+    }
+
+    .sanitization-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .sanitization-content h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--azul-oscuro);
+    }
+
+    .sanitization-content p {
+      color: var(--gris-texto);
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .sanitization-steps {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .sanitization-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .step-icon {
+      background-color: var(--azul-oscuro);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .step-text strong {
+      display: block;
+      color: var(--azul-oscuro);
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
+    .step-text span {
+      color: #6b6b6b;
+      font-size: 0.95rem;
+    }
+
+    .sanitization-badge-large {
+      background-color: var(--blanco);
+      border-radius: 40px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 20px 30px -10px rgba(0, 59, 115, 0.08);
+      border: 2px dashed var(--azul-claro);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sanitization-badge-large i {
+      font-size: 5rem;
+      color: var(--verde-sanitizado);
+      margin-bottom: 24px;
+      background-color: rgba(46, 139, 87, 0.1);
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .sanitization-badge-large h3 {
+      font-size: 1.6rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sanitization-badge-large p {
+      color: #6b6b6b;
+      font-size: 1rem;
+      max-width: 250px;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--azul-oscuro);
+    }
+
+    .section-subtitle {
+      color: #6b6b6b;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    /* Product grid */
+    .products {
+      padding: 64px 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: var(--blanco);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e1eaf2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -8px rgba(0, 59, 115, 0.12);
+    }
+
+    .product-img {
+      background-color: var(--azul-muy-claro);
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 180px;
+      font-size: 4rem;
+      color: var(--azul-oscuro);
+      position: relative;
+    }
+
+    .condition-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background-color: var(--blanco);
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--azul-oscuro);
+      border: 1px solid #c5d9ec;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(4px);
+    }
+
+    .sanitized-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background-color: var(--verde-sanitizado);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .sanitized-badge i {
+      font-size: 0.8rem;
+    }
+
+    .product-info {
+      padding: 20px 18px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--azul-claro);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1e1e1e;
+    }
+
+    .product-desc {
+      font-size: 0.9rem;
+      color: #6b6b6b;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .product-desc i {
+      color: #4caf50;
+      font-size: 0.8rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--azul-oscuro);
+    }
+
+    .old-price {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      text-decoration: line-through;
+      margin-left: 8px;
+      font-weight: 400;
+    }
+
+    .btn-detail {
+      background-color: transparent;
+      border: 1.5px solid var(--azul-oscuro);
+      color: var(--azul-oscuro);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: default;
+      transition: all 0.2s;
+    }
+
+    .btn-detail:hover {
+      background-color: var(--azul-oscuro);
+      color: white;
+    }
+
+    /* Cómo funciona / Beneficios */
+    .benefits {
+      background-color: var(--blanco);
+      padding: 64px 0;
+      margin-top: 24px;
+      border-top: 1px solid #e1eaf2;
+      border-bottom: 1px solid #e1eaf2;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 16px 8px;
+    }
+
+    .benefit-icon {
+      background-color: var(--azul-muy-claro);
+      width: 70px;
+      height: 70px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+      color: var(--azul-oscuro);
+      transition: background 0.2s;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--azul-oscuro);
+    }
+
+    .benefit-card p {
+      color: #6b6b6b;
+      font-size: 0.95rem;
+    }
+
+    /* Testimonios */
+    .testimonials {
+      padding: 64px 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--blanco);
+      border-radius: 28px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 20px rgba(0, 59, 115, 0.03);
+      border: 1px solid #e1eaf2;
+    }
+
+    .stars {
+      color: #f5b342;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #2f2f2f;
+      margin-bottom: 20px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      background-color: var(--azul-oscuro);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .user-info strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #1e1e1e;
+    }
+
+    .user-info span {
+      font-size: 0.8rem;
+      color: #8a8a8a;
+    }
+
+    /* CTA final */
+    .cta-section {
+      background: var(--azul-oscuro);
+      border-radius: 48px;
+      padding: 64px 48px;
+      margin: 48px 0 64px;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-light {
+      background-color: white;
+      color: var(--azul-oscuro);
+      border: 2px solid white;
+      padding: 16px 42px;
+      border-radius: 48px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-light:hover {
+      background-color: transparent;
+      color: white;
+      border-color: white;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0 32px;
+      border-top: 1px solid #e1eaf2;
+      color: #4a4a4a;
+      background-color: var(--blanco);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: #6b6b6b;
+      max-width: 260px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-links a {
+      color: var(--azul-oscuro);
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--azul-claro);
+    }
+
+    .footer-col h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--azul-oscuro);
+    }
+
+    .footer-col a {
+      display: block;
+      text-decoration: none;
+      color: #6b6b6b;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--azul-claro);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid #e1eaf2;
+      font-size: 0.85rem;
+      color: #8a8a8a;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .sanitization-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content p, .sanitization-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-image {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .sanitization-steps li {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .cart-icon {
+        justify-content: center;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-image i {
+        font-size: 8rem;
+      }
+      .trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 28px;
+        padding: 20px 28px;
+      }
+      .cta-section {
+        padding: 40px 24px;
+      }
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      
+      <!-- LOGO: Asegúrate de que logo.jpg esté en la misma carpeta que este index.html -->
+      <a href="#" class="logo-container">
+        <img src="logo.jpg" alt="MisterZapatillas Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <!-- Texto de respaldo por si la imagen no carga -->
+        <div class="logo-fallback" style="display: none;">
+          <i class="fas fa-shoe-prints" style="color: var(--azul-oscuro);"></i>
+          <span>MisterZapatillas</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Zapatillas</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
+      </nav>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <span>0</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1>
+              Zapatillas de marca.<br>
+              <span class="highlight">Usadas, pero impecables.</span>
+            </h1>
+            <p>
+              Descubre sneakers de las mejores marcas con el mejor estado. 
+              Cada par es revisado, certificado y <strong>sanitizado profesionalmente</strong> por nuestro equipo.
+            </p>
+            <a href="#" class="btn-primary">Ver colección <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          </div>
+          <div class="hero-image">
+            <i class="fas fa-shoe-prints"></i>
+          </div>
+        </div>
+        <!-- Barra de confianza -->
+        <div class="trust-bar">
+          <div class="trust-item"><i class="fas fa-check-circle"></i> 100% auténticas</div>
+          <div class="trust-item"><i class="fas fa-star"></i> Estado 9/10 o superior</div>
+          <div class="trust-item"><i class="fas fa-shield-virus"></i> Sanitizadas con Ozono</div>
+          <div class="trust-item"><i class="fas fa-truck"></i> Envío gratis +$50</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Sanitización Profesional -->
+    <section class="sanitization-section">
+      <div class="container">
+        <div class="sanitization-grid">
+          <div class="sanitization-content">
+            <h2>Sanitización profesional en cada par</h2>
+            <p>Tu salud y tranquilidad son lo primero. No solo limpiamos la superficie: eliminamos el 99.9% de bacterias, hongos y virus de cada zapatilla antes de enviártela.</p>
+            <ul class="sanitization-steps">
+              <li>
+                <div class="step-icon"><i class="fas fa-wind"></i></div>
+                <div class="step-text">
+                  <strong>Tratamiento con Ozono</strong>
+                  <span>Penetra en las fibras y elimina microorganismos sin dañar los materiales.</span>
+                </div>
+              </li>
+              <li>
+                <div class="step-icon"><i class="fas fa-pump-medical"></i></div>
+                <div class="step-text">
+                  <strong>Desinfección UV-C</strong>
+                  <span>Luz ultravioleta que neutraliza cualquier patógeno restante.</span>
+                </div>
+              </li>
+              <li>
+                <div class="step-icon"><i class="fas fa-spray-can"></i></div>
+                <div class="step-text">
+                  <strong>Neutralizador de olores</strong>
+                  <span>Acabado fresco y libre de olores, como recién salidas de tienda.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="sanitization-badge-large">
+            <i class="fas fa-shield-virus"></i>
+            <h3>100% Sanitizadas</h3>
+            <p>Certificado de desinfección incluido en cada pedido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="products">
+      <div class="container">
+        <h2 class="section-title">Nuestros favoritos</h2>
+        <p class="section-subtitle">Selección de zapatillas usadas en excelente estado y sanitizadas</p>
+        <div class="product-grid">
+          <!-- Producto 1 -->
+          <div class="product-card">
+            <div class="product-img">
+              <i class="fas fa-shoe-prints"></i>
+              <span class="condition-badge">Como nuevo</span>
+              <span class="sanitized-badge"><i class="fas fa-shield-virus"></i> Sanitizada</span>
+            </div>
+            <div class="product-info">
+              <div class="brand">Nike</div>
+              <div class="product-name">Air Max 90</div>
+              <div class="product-desc"><i class="fas fa-check-circle"></i> Estado 9.5/10</div>
+              <div class="price-row">
+                <div><span class="price">$89</span> <span class="old-price">$120</span></div>
+                <span class="btn-detail">Ver</span>
+              </div>
+            </div>
+          </div>
+          <!-- Producto 2 -->
+          <div class="product-card">
+            <div class="product-img">
+              <i class="fas fa-shoe-prints"></i>
+              <span class="condition-badge">Poco uso</span>
+              <span class="sanitized-badge"><i class="fas fa-shield-virus"></i> Sanitizada</span>
+            </div>
+            <div class="product-info">
+              <div class="brand">Adidas</div>
+              <div class="product-name">Ultraboost 21</div>
+              <div class="product-desc"><i class="fas fa-check-circle"></i> Estado 9/10</div>
+              <div class="price-row">
+                <div><span class="price">$95</span> <span class="old-price">$140</span></div>
+                <span class="btn-detail">Ver</span>
+              </div>
+            </div>
+          </div>
+          <!-- Producto 3 -->
+          <div class="product-card">
+            <div class="product-img">
+              <i class="fas fa-shoe-prints"></i>
+              <span class="condition-badge">Excelente</span>
+              <span class="sanitized-badge"><i class="fas fa-shield-virus"></i> Sanitizada</span>
+            </div>
+            <div class="product-info">
+              <div class="brand">Jordan</div>
+              <div class="product-name">Air Jordan 1 Mid</div>
+              <div class="product-desc"><i class="fas fa-check-circle"></i> Estado 9/10</div>
+              <div class="price-row">
+                <div><span class="price">$130</span> <span class="old-price">$180</span></div>
+                <span class="btn-detail">Ver</span>
+              </div>
+            </div>
+          </div>
+          <!-- Producto 4 -->
+          <div class="product-card">
+            <div class="product-img">
+              <i class="fas fa-shoe-prints"></i>
+              <span class="condition-badge">Como nuevo</span>
+              <span class="sanitized-badge"><i class="fas fa-shield-virus"></i> Sanitizada</span>
+            </div>
+            <div class="product-info">
+              <div class="brand">New Balance</div>
+              <div class="product-name">574 Core</div>
+              <div class="product-desc"><i class="fas fa-check-circle"></i> Estado 9.5/10</div>
+              <div class="price-row">
+                <div><span class="price">$75</span> <span class="old-price">$110</span></div>
+                <span class="btn-detail">Ver</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="benefits">
+      <div class="container">
+        <h2 class="section-title" style="text-align: center;">¿Por qué MisterZapatillas?</h2>
+        <p class="section-subtitle" style="text-align: center;">Calidad, confianza y bioseguridad en cada par</p>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-search"></i></div>
+            <h3>Inspección experta</h3>
+            <p>Cada zapatilla pasa por un riguroso control de autenticidad y estado.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-shield-virus"></i></div>
+            <h3>Sanitización garantizada</h3>
+            <p>Eliminamos el 99.9% de virus y bacterias con ozono y luz UV-C.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+            <h3>Moda sostenible</h3>
+            <p>Dale una segunda vida a sneakers de marca y reduce el impacto ambiental.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-tag"></i></div>
+            <h3>Precios increíbles</h3>
+            <p>Hasta 60% menos que el precio de retail, con calidad garantizada.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-undo-alt"></i></div>
+            <h3>Compra protegida</h3>
+            <p>Si no te encantan, tienes 30 días para devolverlas sin preguntas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle">Miles de sneakerheads confían en nosotros</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Las Air Max llegaron impecables y sanitizadas. El proceso de compra fue súper fácil y la autenticidad está garantizada."</p>
+            <div class="user">
+              <div class="avatar">L</div>
+              <div class="user-info"><strong>Laura G.</strong><span>Compró Nike Air Max 90</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"No podía creer el estado de las Jordan. Se ven nuevas, huelen a nuevo y el precio fue increíble. Ya estoy mirando mi próximo par."</p>
+            <div class="user">
+              <div class="avatar">C</div>
+              <div class="user-info"><strong>Carlos M
