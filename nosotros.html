@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros | MisterZapatillas</title>
+  <!-- Fuente y Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    :root {
+      --azul-oscuro: #003b73;
+      --azul-claro: #5ba4d9;
+      --azul-muy-claro: #eef6fc;
+      --gris-texto: #4a4a4a;
+      --blanco: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #fafbfc; color: #1e1e1e; line-height: 1.6; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header { background-color: var(--blanco); box-shadow: 0 4px 12px rgba(0, 59, 115, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e1eaf2; }
+    .header-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo-container { display: flex; align-items: center; text-decoration: none; }
+    .logo-container img { height: 60px; width: auto; object-fit: contain; }
+    .logo-fallback { font-size: 1.5rem; font-weight: 700; color: var(--azul-oscuro); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 32px; font-weight: 500; color: var(--azul-oscuro); }
+    .nav-links a { text-decoration: none; color: inherit; font-size: 1rem; transition: color 0.2s; position: relative; }
+    .nav-links a:hover { color: var(--azul-claro); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: var(--azul-claro); transition: width 0.2s; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--azul-claro); }
+    .cart-icon { display: flex; align-items: center; gap: 8px; background-color: var(--azul-oscuro); color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500; cursor: default; }
+
+    /* Hero Nosotros */
+    .about-hero {
+      padding: 80px 0;
+      background: linear-gradient(145deg, #ffffff 0%, var(--azul-muy-claro) 100%);
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      color: var(--gris-texto);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Contenido principal */
+    .about-content {
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2.2rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .about-text p {
+      color: var(--gris-texto);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text strong {
+      color: var(--azul-oscuro);
+    }
+
+    /* Caja de características */
+    .features-box {
+      background: var(--blanco);
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0, 59, 115, 0.05);
+      border: 1px solid #e1eaf2;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-icon {
+      background-color: var(--azul-muy-claro);
+      color: var(--azul-claro);
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h3 {
+      font-size: 1.2rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      font-size: 0.95rem;
+      color: #6b6b6b;
+      margin-bottom: 0;
+    }
+
+    /* Sección de marcas */
+    .brands-section {
+      background-color: var(--azul-oscuro);
+      padding: 60px 0;
+      text-align: center;
+      color: white;
+    }
+
+    .brands-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    .brands-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      opacity: 0.8;
+    }
+
+    .brands-logos i {
+      font-size: 4rem;
+      color: white;
+    }
+
+    /* Footer */
+    footer { padding: 32px 0; text-align: center; border-top: 1px solid #e1eaf2; color: #8a8a8a; font-size: 0.9rem; background: var(--blanco); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-hero h1 { font-size: 2.2rem; }
+      .about-hero p { font-size: 1.05rem; }
+      .header-flex { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: center; flex-wrap: wrap; gap: 20px; }
+      .cart-icon { justify-content: center; }
+      .brands-logos { gap: 30px; }
+      .brands-logos i { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-container">
+        <!-- Ruta absoluta para el logo -->
+        <img src="https://diegoalvarezc07-code.github.io/MisterZ/logo.JPG" alt="MisterZapatillas Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="logo-fallback" style="display: none;">
+          <i class="fas fa-shoe-prints"></i> <span>MisterZapatillas</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="#">Zapatillas</a>
+        <a href="nosotros.html" class="active">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <span>0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Nosotros -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>Nacidos en Temuco, para los amantes de las sneakers</h1>
+      <p>Somos una tienda local dedicada a darle una segunda vida a las zapatillas de las marcas más reconocidas del mundo.</p>
+    </div>
+  </section>
+
+  <!-- Contenido Principal -->
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        
+        <!-- Texto de la historia -->
+        <div class="about-text">
+          <h2>Nuestra Historia</h2>
+          <p><strong>MisterZapatillas</strong> nació en el corazón de Temuco con una idea clara: la moda y el estilo no deberían estar peleados con el precio ni con el cuidado del planeta.</p>
+          <p>Nos dedicamos a seleccionar, revisar y sanitizar zapatillas de marcas conocidas (como Nike, Adidas, Jordan y New Balance) que están en excelente estado, para que puedas lucir los modelos que siempre quisiste a un precio justo.</p>
+          <p>No somos una tienda de retail masivo; somos tus vecinos. Conocemos la ciudad, sabemos lo que buscas y nos encanta asesorarte para que encuentres el par perfecto.</p>
+        </div>
+
+        <!-- Caja de valores -->
+        <div class="features-box">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shoe-prints"></i></div>
+            <div class="feature-text">
+              <h3>Marcas Reconocidas</h3>
+              <p>Seleccionamos solo las mejores marcas del mercado para garantizar calidad y estilo.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="feature-text">
+              <h3>Orgullosamente Temuquenses</h3>
+              <p>Entregas presenciales en el centro (McDonald's) y a domicilio cerca de Barros Arana.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
+            <div class="feature-text">
+              <h3>Sanitización Profesional</h3>
+              <p>Cada par pasa por un proceso de ozono y UV-C antes de llegar a tus manos.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marcas Aliadas -->
+  <section class="brands-section">
+    <div class="container">
+      <h2>Las marcas que nos gustan</h2>
+      <div class="brands-logos">
+        <!-- Usamos iconos representativos de las marcas -->
+        <i class="fas fa-check" title="Nike"></i>
+        <i class="fas fa-layer-group" title="Adidas"></i>
+        <i class="fas fa-basketball" title="Jordan"></i>
+        <i class="fas fa-running" title="New Balance"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2025 MisterZapatillas. Hecho en Temuco, Chile.
+    </div>
+  </footer>
+
+</body>
+</html>
