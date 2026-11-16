@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | MisterZapatillas</title>
+  <!-- Fuente y Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    :root {
+      --azul-oscuro: #003b73;
+      --azul-claro: #5ba4d9;
+      --azul-muy-claro: #eef6fc;
+      --gris-texto: #4a4a4a;
+      --blanco: #ffffff;
+      --verde-whatsapp: #25D366;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #fafbfc; color: #1e1e1e; line-height: 1.5; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header (idéntico al index) */
+    header { background-color: var(--blanco); box-shadow: 0 4px 12px rgba(0, 59, 115, 0.05); padding: 12px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e1eaf2; }
+    .header-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo-container { display: flex; align-items: center; text-decoration: none; }
+    .logo-container img { height: 60px; width: auto; object-fit: contain; }
+    .logo-fallback { font-size: 1.5rem; font-weight: 700; color: var(--azul-oscuro); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 32px; font-weight: 500; color: var(--azul-oscuro); }
+    .nav-links a { text-decoration: none; color: inherit; font-size: 1rem; transition: color 0.2s; position: relative; }
+    .nav-links a:hover { color: var(--azul-claro); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: var(--azul-claro); transition: width 0.2s; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--azul-claro); }
+    .cart-icon { display: flex; align-items: center; gap: 8px; background-color: var(--azul-oscuro); color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500; cursor: default; }
+
+    /* Sección de Contacto */
+    .contact-section {
+      padding: 80px 0;
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: stretch; /* Para que ambas columnas midan lo mismo */
+      background: var(--blanco);
+      padding: 60px;
+      border-radius: 40px;
+      box-shadow: 0 20px 40px rgba(0, 59, 115, 0.05);
+      border: 1px solid #e1eaf2;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-info h1 {
+      font-size: 2.8rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-info > p {
+      color: var(--gris-texto);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    /* Nuevos bloques de información de entrega */
+    .delivery-info {
+      background-color: var(--azul-muy-claro);
+      padding: 24px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--azul-claro);
+    }
+
+    .delivery-info h3 {
+      color: var(--azul-oscuro);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .delivery-info h3 i {
+      color: var(--azul-claro);
+    }
+
+    .delivery-info p {
+      color: var(--gris-texto);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .delivery-info p i {
+      color: var(--azul-oscuro);
+      margin-top: 4px;
+    }
+
+    /* Caja de WhatsApp */
+    .whatsapp-box {
+      background: linear-gradient(145deg, #eaffeb 0%, #d4ffd6 100%);
+      padding: 48px 32px;
+      border-radius: 30px;
+      text-align: center;
+      border: 2px dashed var(--verde-whatsapp);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .whatsapp-box i.fa-whatsapp {
+      font-size: 4.5rem;
+      color: var(--verde-whatsapp);
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-box h2 {
+      color: #128C7E;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .whatsapp-box p {
+      color: #333;
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+      max-width: 80%;
+    }
+
+    .whatsapp-number {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #128C7E;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      background: white;
+      padding: 8px 24px;
+      border-radius: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: var(--verde-whatsapp);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      width: 100%;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1EBE5A;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Footer simple */
+    footer { padding: 32px 0; text-align: center; border-top: 1px solid #e1eaf2; color: #8a8a8a; font-size: 0.9rem; background: var(--blanco); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .contact-info h1 { font-size: 2.2rem; text-align: center; }
+      .contact-info > p { text-align: center; }
+      .header-flex { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: center; flex-wrap: wrap; gap: 20px; }
+      .cart-icon { justify-content: center; }
+      .whatsapp-box p { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-container">
+        <img src="logo.JPG" alt="MisterZapatillas Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="logo-fallback" style="display: none;">
+          <i class="fas fa-shoe-prints"></i> <span>MisterZapatillas</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="#">Zapatillas</a>
+        <a href="#">Nosotros</a>
+        <a href="contacto.html" class="active">Contacto</a>
+      </nav>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <span>0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sección de Contacto -->
+  <main class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Información y Puntos de Entrega -->
+        <div class="contact-info">
+          <h1>Hablemos de sneakers</h1>
+          <p>¿Tienes dudas sobre algún par, tallas o quieres apartar tu zapatilla favorita? Escríbenos directamente, respondemos al instante.</p>
+          
+          <!-- Bloque de Ubicación y Entregas -->
+          <div class="delivery-info">
+            <h3><i class="fas fa-map-marker-alt"></i> Entregas en Temuco</h3>
+            <p><i class="fas fa-check-circle"></i> <strong>Punto de encuentro:</strong> McDonald's del centro.</p>
+            <p><i class="fas fa-motorcycle"></i> <strong>Domicilio:</strong> Entregas a pasos del Líder de Barros Arana.</p>
+            <p style="margin-top: 12px; font-size: 0.85rem; color: #6b6b6b;"><i class="fas fa-info-circle"></i> Coordinamos horario y lugar exacto por WhatsApp al confirmar tu pedido.</p>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>Lun a Sáb: 10:00 - 20:00 hrs</span>
+          </div>
+        </div>
+
+        <!-- Caja de WhatsApp Directo -->
+        <div class="whatsapp-box">
+          <i class="fab fa-whatsapp"></i>
+          <h2>Atención Inmediata</h2>
+          <p>Haz clic en el botón de abajo para coordinar tu entrega o consultar stock.</p>
+          
+          <span class="whatsapp-number">+56 9 8699 8531</span>
+          
+          <!-- Enlace API oficial de WhatsApp con mensaje predefinido -->
+          <a href="https://wa.me/56986998531?text=Hola%20MisterZapatillas!%20Vengo%20desde%20la%20web.%20Quiero%20consultar%20por%20una%20zapatilla%20y%20coordinar%20entrega%20(McDonald's%20Centro%20o%20domicilio%20Barros%20Arana)." target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2025 MisterZapatillas. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
